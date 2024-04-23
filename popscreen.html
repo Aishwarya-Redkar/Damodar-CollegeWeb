@@ -1,0 +1,91 @@
+
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<SCRIPT LANGUAGE="javascript">
+NewImg=new Array("school.jpg","android.JPG","teachers day.jpg");
+var ImgNum=0;
+var ImgLength=NewImg.length-1;
+//Time delay between slides in milliseconds 
+var delay=3000;
+var lock=false;
+var run;
+function chgImg(direction)
+{
+if (document.images)
+{
+ImgNum=ImgNum+direction;
+if(ImgNum>ImgLength)
+{
+ImgNum=0;
+}
+if(ImgNum<0)
+{
+ImgNum=ImgLength;
+}
+document.slideshow.src=NewImg[ImgNum];
+}
+}
+function auto()
+{
+if(lock==true)
+{
+lock=false;
+window.clearInterval(run);
+}
+else
+if(lock==false)
+{
+lock=true;
+run=setInterval("chgImg(1)",delay);
+}
+}
+  </script>
+<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>  
+
+</head>
+
+
+<body onload="auto()">
+
+
+
+
+  <div data-role="main" class="ui-content">
+    <a href="#myPopupDialog" data-rel="popup" data-position-to="window" data-transition="fade" ">Open Dialog Popup</a>
+
+    <div data-role="popup" id="myPopupDialog">
+      <div data-role="header">
+      <center> Photo Gallery of Our College</center>
+      </div>
+
+      <div data-role="main" class="ui-content">
+       
+
+
+
+
+
+ <center> <img src="assests/school.jpg" name="slideshow" border="5"></center>
+  <br><br>
+
+
+
+       
+        <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b ui-icon-back ui-btn-icon-left" data-rel="back">Go Back</a>
+      </div>
+
+      <div data-role="footer">
+        <h1>Photo Gallery</h1>
+      </div>
+    </div>
+  </div>
+
+  
+</div> 
+</center>
+</body>
+</html>

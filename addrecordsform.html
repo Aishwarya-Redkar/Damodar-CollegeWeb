@@ -1,0 +1,152 @@
+<html>
+<head>
+<script>
+function validate1()
+{
+	
+roll=document.addstudentrecordsform.roll_no.value;
+na=document.addstudentrecordsform.name.value;
+Email_stud=document.addstudentrecordsform.email.value;
+user=document.addstudentrecordsform.username.value;
+pass=document.addstudentrecordsform.password.value;
+
+
+	
+	if (roll=="")
+	{
+	alert("Enter roll no");
+	document.addstudentrecordsform.roll_no.focus();
+	return false;
+	}
+	else if (isNaN(roll)) {
+                alert("Invalid roll no");
+				return false;
+          }
+	
+	
+	if (na=="")
+		{
+		alert("Enter name");
+		document.addstudentrecordsform.name.focus();
+		return false;
+		}
+		else
+	//if (addstudentrecordsform.name.value.match(/^[a-zA-Z]+$/) && addstudentrecordsform.name.value !="")
+		if (!isNaN(na)) 
+		{
+		alert("Invalid name");
+		document.addstudentrecordsform.name.focus();
+		return false;
+		}
+		
+		
+		var mail=Email_stud;
+			
+		    var at=mail.indexOf("@");
+		    var dot=mail.lastIndexOf(".");
+				
+		if(Email_stud=="")
+		{
+			alert("Enter Email");
+				document.addstudentrecordsform.email.focus();
+				return false;
+		}
+		else 
+		
+			if(at<1 || dot<at+2 || dot+2>=mail.length)
+			  {
+			 alert("Not a valid Email Address");
+			document.addstudentrecordsform.email.focus();
+						return false;
+			 }
+		
+		
+		
+		var ichars=user;
+
+		var at=ichars.indexOf("_");
+		var dot=ichars.lastIndexOf(".");
+		if (user=="")
+	
+			{
+				alert("Enter username");
+				document.addstudentrecordsform.username.focus();
+				return false;
+					 }    
+		
+		
+		else if (at<1)
+	
+    {
+	alert ("underscore is must for username");
+		document.addstudentrecordsform.username.focus();
+		return false;
+    
+        }
+    
+		
+		
+ if(pass=="")
+{
+	alert("Click generate password Button");
+	document.addstudentrecordsform.password.focus();
+	return false;
+	
+}
+		
+	}
+function pass1()
+{
+		roll=document.addstudentrecordsform.roll_no.value;
+		if ((roll=="")||(isNaN(roll)))
+	{
+	alert("Enter a valid roll no");
+	
+	}
+	 
+else{  
+	var pa="";
+	
+	size=7;
+	for (i=0;i<=size;i++)
+	{
+	
+     	 var pa=pa+roll.charAt(i);
+      
+		 var c=pa+"@abc";
+	}
+		alert("your password is "+""+""+ c );
+
+	document.addstudentrecordsform.password.value=c; 
+	}
+}
+
+
+
+</script>
+
+</head>
+
+
+<body background="bac.jpg" text="white">
+<center><font face="algerian" size=20>Add Student's Details</font></center><br>
+
+<center><table border=1 bordercolor=white cellspacing=10 cellpadding=10><tr><td>
+<form action="addrecords.php" method="POST" name="addstudentrecordsform" onSubmit="return validate1()">
+
+<br>
+Roll No:-&nbsp;&nbsp;&nbsp; <input type="text" name="roll_no" value="" maxlength="8"><br><br>
+Name:-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <input type="text" name="name" value="">*Last Name First<br><br>
+Email:-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="email" value=""><br><br>
+
+
+
+
+Username:-&nbsp;<input type="text" name="username" value=""> &nbsp; * Username should contain underscore<br><br>
+Password:-&nbsp; <input type="password" name="password" value="" readonly >
+<input type="button" name="submit1" value="Generate Default Password" onClick="pass1()">
+<br><br><br>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="submit" name="submit" value="Submit">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <input type="reset" name="reset" value="Reset"><br><br>
+</form></td></tr></table></center>
+</html>

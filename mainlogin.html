@@ -1,0 +1,142 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+<link href="../loginstyle.css" rel="stylesheet" type="text/css" /><link href="loginstyle.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" type="text/css" href="loginbuttonstyle.css">
+
+<style type="text/css">
+a:link {
+	color: #FFF;
+}
+a:visited {
+	color: #FFF;
+}
+a:hover {
+	color: #FF0;
+}
+a:active {
+	color: #FFF;
+}
+</style>
+
+<body class="loginstyle">
+<span class="loginstyle">
+<br><br><br>
+<br><br><br>
+<br><br><br>
+</span>
+
+<script>
+function validation1()
+{
+	user=document.form1.myusername.value;
+	pass1=document.form1.mypassword.value;
+     
+	 var ichars=user;
+	var at=ichars.indexOf("_");
+		var dot=ichars.lastIndexOf(".");
+		if (user=="")
+	
+			{
+				alert("Enter username");
+				document.form1.myusername.focus();
+				return false;
+					 }    
+		
+		
+		else if (at<1)
+	
+    {
+	alert ("underscore is must for username");
+		document.form1.myusername.focus();
+		return false;
+    
+        }
+		
+		var ichars=pass1;
+	var at=ichars.indexOf("@");
+		
+		if (pass1=="")
+	
+			{
+				alert("Enter password");
+				document.form1.mypassword.focus();
+				return false;
+					 }    
+		
+		
+		else if (at<0)
+	
+    {
+	alert ("@ symbol is must for password");
+		document.form1.mypassword.focus();
+		return false;
+    
+	}
+		
+		else if(pass1.length < 4)
+	{alert("password is too short ");
+	document.form1.mypassword.focus();
+	return false;
+	}
+	
+	else if(pass1.length > 15)
+	{alert("password is too long");
+	document.form1.mypassword.focus();
+	return false;
+	}
+
+if ((document.form1.rbutton[0].checked==false)&& (document.form1.rbutton[1].checked==false) &&(document.form1.rbutton[2].checked==false))
+{
+alert("Select user type");
+return false;
+}
+
+
+
+	}
+	
+	</script>
+</head>
+<center><table width="429" height="365"  background="wall.jpg">
+  <tr>
+    <td width="313" height="194"><center>
+      <br><p><font face="algerian" size=6>LOG IN</font></p></center>
+      <p>&nbsp;</p>
+               
+      
+      <form name="form1" method="post" action="ooo.php" onsubmit="return validation1()">
+        <label for="textfield"></label><center>Username:-
+        <input type="text" name="myusername" id="username" /></center>
+        <br><br>
+       <center>Password:-
+        <input type="password" name="mypassword" id="password" /></center>
+      <br><br><br><br>
+	  
+	  <center>Student <input type="radio" name="rbutton" value="Student">&nbsp;&nbsp;
+	  Faculty <input type="radio" name="rbutton" value="Faculty">&nbsp;&nbsp;
+	   Admin<input type="radio" name="rbutton" value="Admin">&nbsp;&nbsp;
+	  
+	  </center><br><br>
+   <center>   <input type="submit" name="submit" value="Login" class="button2"></center>
+   
+   <br><br><center><font color="red"><a href="register.html">Not Registered?.Register Now</a></font></center>
+      
+      </form>
+      
+    </center></td>
+  </tr>
+</table></center>
+<span class="loginstyle"><br>
+<br><br>
+<br><br><br>
+<br><br><br>
+
+
+
+<center></center>
+</span>
+</body>
+</html>

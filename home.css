@@ -1,0 +1,13 @@
+@charset "utf-8";
+.home {
+	background-color: #00F;
+	color: #FFF;
+	text-align: left;
+}
+.home {
+	background-color: #00F;
+	color: #000;
+}
+.home .home {
+	color: #000;
+}

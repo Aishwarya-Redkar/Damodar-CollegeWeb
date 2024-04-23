@@ -1,0 +1,59 @@
+<html>
+<head>
+
+</head>
+<body background="1_235702_1.jpg" text="white">
+<center><font face="algerian" size=20>Add Faculty Details</font></center><br>
+<br><br><br><br><br>
+<center><table border=1 bordercolor=white cellspacing=10 cellpadding=10><tr><td>
+<form action="addfaculty1.php" method="POST">
+
+<br>
+Faculty id:-&nbsp;&nbsp;&nbsp; <input type="text" name="id" value=""><br><br>
+Name:-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <input type="text" name="name" value=""><br><br>
+Gender:-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="gender" value=""><br><br>
+Contact:-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="contact" value=""><br><br>
+Address:-<br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<textarea name="add" rows=5></textarea><br><br>
+Email id:-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="email" value=""><br><br>
+Faculty Type:-<input type="text" name="ftype" value=""> eg:- teaching / non-teaching<br><br>
+Qualification:-<input type="text" name="qual" value=""><br><br>
+<?php
+
+$query="SELECT * FROM courses";
+$result=mysql_query($query) or die("Query Failed: ".mysql_error());
+$i=0;
+while($rows=mysql_fetch_array($result))
+{
+$coursee[$i]=$rows['c-name'];
+$i++;
+}
+$total_elmt=count($coursee);
+
+?>
+
+
+Select the 'Subject' Name:<select name="cour"> Only if teaching staff
+<option>Select</option>&nbsp;&nbsp;
+<?php
+for($j=0;$j<$total_elmt;$j++)
+{
+?><option><?php
+echo $coursee[$j];
+?></option><?php
+}
+?>
+</select><br/><br>
+<br>
+
+?>
+
+Username:-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="user" value=""><br><br>
+Password:-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="pass" value=""><br><br>
+
+
+
+<br><br>
+ <center><input type="submit" name="submit" value="Submit" >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ <input type="reset" name="reset" value="Reset"></center><br><br>
+</form></td></tr></table></center>
+</html>
